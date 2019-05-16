@@ -38,7 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'blog'
+    # third party apps
+    'crispy_forms',
+
+    # my apps
+    'blog',             # also define the css styles - Bootstrap 4 in a variable called 'CRISPY_TEMPLATE_PACK' below
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -120,3 +125,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
