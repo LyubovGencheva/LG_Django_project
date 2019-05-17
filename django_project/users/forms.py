@@ -8,5 +8,5 @@ class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()                          # required=True by default
 
     class Meta:                                         # class Meta keeps configurations in a nested place
-        model = User                                    # form.save() will save it to the USer model (to be affected)
+        model = User                                    # form.save() will save it to the User model (to be affected)
         fields = ['username', 'email', 'password1', 'password2']

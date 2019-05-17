@@ -14,11 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+
 from users import views as user_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', user_views.register, name='register'),
+    path('profile/', user_views.profile, name='profile'),
+    path('login/', auth_views.LoginView.as_view(template_name='users/login.html'), name='login'),
+                            # in as_view() change the location where django searches for the Login template (by default = register/login.html)
+    path('logout/', auth_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
+                            # in as_view() change the location where django searches for the Logout template (by default = register/logout.html)
     path('', include('blog.urls')),
 ]
+
+# from django documentation: https://docs.djangoproject.com/en/2.2/howto/static-files/#serving-files-uploaded-by-a-user-during-development
+if settings.DEBUG:          # only if we are in debug mode
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
