@@ -2,6 +2,7 @@
 {% block content %}
     {% for post in posts %} <!-- post is the 'key' in home.view context variable-->
         <article class="media content-section">
+          <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
           <div class="media-body">
             <div class="article-metadata">
               <a class="mr-2" href="#">{{ post.author }}</a>
