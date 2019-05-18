@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.views.generic import (
     ListView,
@@ -21,10 +22,25 @@ def home(request):
 # ListView for the homepage instead of function
 class PostListView(ListView):
     model = Post
-    template_name = 'blog/home.html'    # if we do not have template_name variable, by default django's class based view
-                                        # will search for a template <app>/<model>_<viewtype>.html (i.e. blog/post_list.html
+    template_name = 'blog/home.html'            # if we do not have template_name variable, by default django's class based view
+                                                # will search for a template <app>/<model>_<viewtype>.html (i.e. blog/post_list.html
     context_object_name = 'posts'
-    ordering = ['-date_posted']          # ordering; if from oldest to newest ['date_posted']
+    ordering = ['-date_posted']                 # ordering; if from oldest to newest ['date_posted']
+    paginate_by = 5                             # 5 posts per page
+
+
+# ListView for the posts by a particular user, when click-ing on his username
+class UserPostListView(ListView):
+    model = Post
+    template_name = 'blog/user_posts.html'      # if we do not have template_name variable, by default django's class based view
+                                                # will search for a template <app>/<model>_<viewtype>.html (i.e. blog/post_list.html
+    context_object_name = 'posts'
+    paginate_by = 5                             # 5 posts per page
+
+    # override the get_queryset method to fetch posts by a single user
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Post.objects.filter(author=user).order_by('-date_posted')
 
 
 # DetailView for each post
@@ -77,6 +93,6 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 
 def about(request):
-    return render(request, 'blog/about.html', {'title': 'About'})  #the last variable is the context dictionary to be passed to the about template
+    return render(request, 'blog/about.html', {'title': 'About'})  # the last variable is the context dictionary to be passed to the about template
 
 
