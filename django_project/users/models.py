@@ -11,7 +11,7 @@ class Profile(models.Model):
         return f'{self.user.username} Profile'
 
     # Override the save method to resize the profile pic before saving it.
-    def save(self):
+    def save(self, *args, **kwargs):
         super().save()                              # running the save method on the parent class
                                                     # will save the uploaded image just as it is
         img = Image.open(self.image.path)
