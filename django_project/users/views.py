@@ -58,5 +58,4 @@ class ProfileListView(ListView):
                                                 # will search for a template <app>/<model>_<viewtype>.html (i.e. blog/post_list.html
     profiles = Profile.objects.all()
     context_object_name = 'profiles'
-    #ordering = ['-date_posted']                # ordering; if from oldest to newest ['date_posted']
     paginate_by = 5                             # 5 posts per page

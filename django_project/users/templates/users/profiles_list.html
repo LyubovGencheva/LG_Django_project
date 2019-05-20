@@ -8,8 +8,7 @@
               <a class="mr-2" href="{% url 'user-posts' profile.user.username %}">{{profile.user.username}}</a>
               <small class="text-muted">(Joined: {{profile.user.date_joined|date:"F d, Y"}})</small>
             </div>
-            <h2><a class="article-title">Ala</a></h2>
-            <p class="article-content">Bala</p>
+              <p class="article-content">{{ profile.about}}</p>
           </div>
         </article>
     {% endfor %}

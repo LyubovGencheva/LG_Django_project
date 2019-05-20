@@ -23,15 +23,15 @@
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-          <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Destiliarahi</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
-              <a class="nav-item nav-link" href="{% url 'blog-home' %}">Home</a>
-              <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
+                <a class="nav-item nav-link font-weight-bolder" href="{% url 'blog-home' %}">Destiliarahi</a>
+                <a class="nav-item nav-link" href="{% url 'blog-about' %}">About</a>
             </div>
+
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
                 {% if user.is_authenticated %}   <!--NavBar will be different depending on whether the User is Logged in or not-->
@@ -43,11 +43,11 @@
                     <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
                 {% endif %}
             </div>
+            <!--NavBar Right Side end-->
           </div>
         </div>
       </nav>
     </header>
-    <!--Navigation bar end-->
 
     <!-- Block content and styles-->
         <main role="main" class="container">
@@ -64,22 +64,14 @@
               </div>
             <div class="col-md-4">
               <div class="content-section">
-                <h3>Sidebar</h3>
-                <p class='text-muted'>More useful links could be added below
-                  <ul class="list-group">
-                    <li class="list-group-item list-group-item-light pt-1 pb-1" href="{% url 'profiles-all'%}">
-                        <a class="nav-item nav-link" href="{% url 'profiles-all' %}">Who's Already Here?</a>
-                    </li>
-                    <li class="list-group-item list-group-item-light pt-1 pb-1">
-                        <a class="nav-item nav-link" href="#">Most Liked Posts</a>
-                    </li>
-                    <li class="list-group-item list-group-item-light pt-1 pb-1">
-                        <a class="nav-item nav-link" href="#">Announcements</a>
-                    </li>
-                    <li class="list-group-item list-group-item-light pt-1 pb-1">
-                        <a class="nav-item nav-link" href="#">Categories</a>
-                    </li>
-                  </ul>
+                <h3>Have a Look @</h3>
+                <p class='text-muted'>
+                  <div class="list-group">
+                    <a class="list-group-item list-group-item-action" href="{% url 'profiles-all' %}">Who's Already Here?</a>
+                    <a class="list-group-item list-group-item-action" href="#">Most Liked Posts</a>
+                    <a class="list-group-item list-group-item-action" href="#">Announcements</a>
+                    <a class="list-group-item list-group-item-action" href="#">Calendar</a>
+                  </div>
                 </p>
               </div>
             </div>

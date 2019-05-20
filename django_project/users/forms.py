@@ -21,7 +21,7 @@ class UserUpdateForm(forms.ModelForm):                  # allows to username & e
         fields = ['username', 'email']
 
 
-class ProfileUpdateForm(forms.ModelForm):               # allows image update
+class ProfileUpdateForm(forms.ModelForm):               # allows image & about update
     class Meta:
         model = Profile
-        fields = ['image']
+        fields = ['about','image']
