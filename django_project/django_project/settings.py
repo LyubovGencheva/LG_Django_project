@@ -147,3 +147,11 @@ LOGIN_REDIRECT_URL = 'blog-home'
 # by default if we try to access User's profile without being authorized, django will search here: http://127.0.0.1:8000/accounts/login/?next=/profile/
 # and render 404 Error, while we would like to redirect him to the 'login' page instead.
 LOGIN_URL = 'login'
+
+# Setting up an e-mail to support forgotten passwords changes via e-mail.
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = os.environ.get('DJANGO_EMAIL_USER')               # set-up using environment variables
+EMAIL_HOST_PASSWORD = os.environ.get('DJANGO_EMAIL_PASSWORD')       # Windows>ControlPanel>System>AdvancedSettings>EnvironmentVariables
