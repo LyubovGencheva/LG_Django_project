@@ -13,26 +13,41 @@
         </article>
     {% endfor %}
 
+    <!-- Pagination with Bootstrap styles-->
     {% if is_paginated %}
-
-        {% if page_obj.has_previous %}
-            <a class = "btn btn-outline-info mb-4" href="?page=1">First</a>
-            <a class = "btn btn-outline-info mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
-        {% endif %}
-
-        {% for num in page_obj.paginator.page_range %}
-            {% if page_obj.number == num %}
-                <a class = "btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
-            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}     <!--filter for the previous 3 and next 3 pages-->
-                                                                                            <!-- if we use "or" instead of "and", all pages will appear below"-->
-                <a class = "btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+        <ul class="pagination pagination-sm">
+            {% if page_obj.has_previous %}
+                <li class = "page-item">
+                    <a class = "page-link" href="?page=1">First</a>
+                </li>
+                <li class = "page-item">
+                    <a class = "page-link" href="?page={{ page_obj.previous_page_number }}"><<</a>
+                </li>
             {% endif %}
-        {% endfor %}
 
-        {% if page_obj.has_next %}
-            <a class = "btn btn-outline-info mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
-            <a class = "btn btn-outline-info mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
-        {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <li class = "page-item disabled">
+                        <a class = "page-link" href="?page={{ num }}">{{ num }}</a>
+                    </li>
+                {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}     <!--filter for the previous 3 and next 3 pages-->
+                                                                                                <!--if we use "or" instead of "and", all pages will appear below"-->
+                    <li class = "page-item">
+                        <a class = "page-link" href="?page={{ num }}">{{ num }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
 
+            {% if page_obj.has_next %}
+                <li class = "page-item">
+                    <a class = "page-link" href="?page={{ page_obj.next_page_number }}">>></a>
+                </li>
+                <li class = "page-item">
+                    <a class = "page-link" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                </li>
+            {% endif %}
+        </ul>
+        <p></p>
     {% endif %}
+
 {% endblock %}

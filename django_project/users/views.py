@@ -58,4 +58,4 @@ class ProfileListView(ListView):
                                                 # will search for a template <app>/<model>_<viewtype>.html (i.e. blog/post_list.html
     profiles = Profile.objects.all()
     context_object_name = 'profiles'
-    paginate_by = 5                             # 5 posts per page
+    paginate_by = 5                             # 5 profiles per page
