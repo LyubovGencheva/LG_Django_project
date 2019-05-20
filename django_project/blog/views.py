@@ -94,5 +94,3 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 def about(request):
     return render(request, 'blog/about.html', {'title': 'About'})  # the last variable is the context dictionary to be passed to the about template
-
-

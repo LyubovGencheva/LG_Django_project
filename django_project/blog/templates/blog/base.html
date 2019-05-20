@@ -12,9 +12,9 @@
     <link rel = "stylesheet" type="text/css" href="{% static 'blog/main.css' %}"> <!--the static statement generates an abosolute url to the static files and accesses it-->
 
     {% if title %}
-        <title>Django Blog - {{title}}</title>
+        <title>Destiliarahi - {{title}}</title>
     {% else %}
-        <title>Django Blog</title>
+        <title>Destiliarahi</title>
     {% endif %}
 
 </head>
@@ -23,7 +23,7 @@
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-          <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Django Blog</a>
+          <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Destiliarahi</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
@@ -67,10 +67,18 @@
                 <h3>Sidebar</h3>
                 <p class='text-muted'>More useful links could be added below
                   <ul class="list-group">
-                    <li class="list-group-item list-group-item-light">Latest Posts</li>
-                    <li class="list-group-item list-group-item-light">Announcements</li>
-                    <li class="list-group-item list-group-item-light">Calendars</li>
-                    <li class="list-group-item list-group-item-light">etc</li>
+                    <li class="list-group-item list-group-item-light pt-1 pb-1" href="{% url 'profiles-all'%}">
+                        <a class="nav-item nav-link" href="{% url 'profiles-all' %}">Who's Already Here?</a>
+                    </li>
+                    <li class="list-group-item list-group-item-light pt-1 pb-1">
+                        <a class="nav-item nav-link" href="#">Most Liked Posts</a>
+                    </li>
+                    <li class="list-group-item list-group-item-light pt-1 pb-1">
+                        <a class="nav-item nav-link" href="#">Announcements</a>
+                    </li>
+                    <li class="list-group-item list-group-item-light pt-1 pb-1">
+                        <a class="nav-item nav-link" href="#">Categories</a>
+                    </li>
                   </ul>
                 </p>
               </div>

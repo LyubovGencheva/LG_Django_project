@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.views.generic import ListView
 from . forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
+from . models import Profile
+
 
 
 def register(request):
@@ -46,3 +49,14 @@ def profile(request):
     }
 
     return render(request, 'users/profile.html', context)
+
+
+# Profiles ListView for the "Who's Here" section on the Sidebar
+class ProfileListView(ListView):
+    model = Profile
+    template_name = 'users/profiles_list.html'   # if we do not have template_name variable, by default django's class based view
+                                                # will search for a template <app>/<model>_<viewtype>.html (i.e. blog/post_list.html
+    profiles = Profile.objects.all()
+    context_object_name = 'profiles'
+    #ordering = ['-date_posted']                # ordering; if from oldest to newest ['date_posted']
+    paginate_by = 5                             # 5 posts per page
