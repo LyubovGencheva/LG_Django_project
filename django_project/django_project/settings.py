@@ -131,6 +131,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')     #this variable is being added at the point of Heroku deployment
 STATIC_URL = '/static/'
 
 # uploaded files will be saved here
