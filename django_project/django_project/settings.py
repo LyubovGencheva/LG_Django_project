@@ -28,7 +28,8 @@ SECRET_KEY = '3h8ob-n0p%8=w$xa$%-6v_ob=y++1a)u%2wlgky$vuj&dbjui!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://destiblog.herokuapp.com/',
+ALLOWED_HOSTS = [
+                    'destiblog.herokuapp.com',
                  ]
 
 
