@@ -28,8 +28,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['destiblog.herokuapp.com',
-                 'destiliarahiblog.herokuapp.com',
+ALLOWED_HOSTS = [
+    'destiblog.herokuapp.com',
+    '127.0.0.1',
                  ]
 
 
@@ -165,12 +166,12 @@ EMAIL_HOST_PASSWORD = os.environ.get('DJANGO_EMAIL_PASSWORD')       # Windows>Co
 
 # DEPLOY VARIABLES BELOW
 default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
-DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
+DATABASES = {'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 #DJANGO BLOG VARIABLES
 # AWS variables to be imported here too
-export SECRET_KEY="fbf60a47536de7dfc1a3e2b1c453db756352679e2cb38cf6"
-export DEBUG_VALUE="True"
+#export SECRET_KEY="fbf60a47536de7dfc1a3e2b1c453db756352679e2cb38cf6"
+#export DEBUG_VALUE="True"
 
