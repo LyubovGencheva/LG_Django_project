@@ -2,6 +2,7 @@
   <dictionary name="Lyubov">
     <words>
       <w>endblock</w>
+      <w>gunicorn</w>
     </words>
   </dictionary>
 </component>
