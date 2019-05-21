@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+from decouple import config
+from dj_database_url import parse as dburl
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +28,8 @@ SECRET_KEY = '3h8ob-n0p%8=w$xa$%-6v_ob=y++1a)u%2wlgky$vuj&dbjui!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://destiblog.herokuapp.com/',
+                 ]
 
 
 # Application definition
@@ -132,7 +136,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')     #this variable is being added at the point of Heroku deployment
 STATIC_URL = '/static/'
 
 # uploaded files will be saved here
@@ -157,3 +160,13 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get('DJANGO_EMAIL_USER')               # set-up using environment variables
 EMAIL_HOST_PASSWORD = os.environ.get('DJANGO_EMAIL_PASSWORD')       # Windows>ControlPanel>System>AdvancedSettings>EnvironmentVariables
+
+
+# Deployment settings below
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
+
+default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
