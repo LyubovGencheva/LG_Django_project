@@ -14,7 +14,6 @@ import os
 from decouple import config
 from dj_database_url import parse as dburl
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -23,13 +22,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '3h8ob-n0p%8=w$xa$%-6v_ob=y++1a)u%2wlgky$vuj&dbjui!'
+# SECRET_KEY = '3h8ob-n0p%8=w$xa$%-6v_ob=y++1a)u%2wlgky$vuj&dbjui!'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [
-                    'destiblog.herokuapp.com',
+ALLOWED_HOSTS = ['destiblog.herokuapp.com',
+                 'destiliarahiblog.herokuapp.com',
                  ]
 
 
@@ -163,11 +163,14 @@ EMAIL_HOST_USER = os.environ.get('DJANGO_EMAIL_USER')               # set-up usi
 EMAIL_HOST_PASSWORD = os.environ.get('DJANGO_EMAIL_PASSWORD')       # Windows>ControlPanel>System>AdvancedSettings>EnvironmentVariables
 
 
-# Deployment settings below
-SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
-
+# DEPLOY VARIABLES BELOW
 default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 DATABASES = { 'default': config('DATABASE_URL', default=default_dburl, cast=dburl), }
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+#DJANGO BLOG VARIABLES
+# AWS variables to be imported here too
+export SECRET_KEY="fbf60a47536de7dfc1a3e2b1c453db756352679e2cb38cf6"
+export DEBUG_VALUE="True"
+
