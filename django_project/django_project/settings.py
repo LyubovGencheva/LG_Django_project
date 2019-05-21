@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     # third party apps
     'crispy_forms',
+    'Gunicorn',
 
 
     # App-s must be listed with their whole class name from the <app>/apps.py file, instead of their '<app-name>' only

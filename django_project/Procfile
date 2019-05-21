@@ -1,1 +1,1 @@
-web: gunicorn django-project.wsgi --log-file -
+web: python django_project/manage.py run_gunicorn --bind=0.0.0.0:$PORT
