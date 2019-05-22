@@ -19,8 +19,7 @@
 ### /register/                          Register New User (NavigationBar-top-right, for new users only; redirect to login page)
 
 
-## Registered, but not logged-in users - 
-## Forgotten password at Login attempt:
+## Registered, but not logged-in users - Forgotten password at Login attempt:
 ### /password-reset/                    Request password reset via e-mail (from Login page >> Forgot password?)
 ### /password-reset/done                E-mail with pass reset instructions sent to user's mail (redirected after 'Request pass reset')
 ### /password-reset/<uidb64>/<token>/   Confirms that pass-reset requestor is a registered user (after click on the sent e-mail link)
