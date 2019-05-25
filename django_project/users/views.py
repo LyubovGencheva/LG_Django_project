@@ -6,7 +6,6 @@ from . forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from . models import Profile
 
 
-
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)                               # creates the form with populated user data

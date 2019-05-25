@@ -60,8 +60,9 @@ class PostCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)                 # running the form_valid method on the parent class
 
 
-# CreateView for a post will contain a form, that is why the form fields have to be specified
+# UpdateView for a post will contain a form, that is why the form fields have to be specified
 # LoginRequiredMixin will now allow a user to create a post unless he is logged in
+# UserPassesTestMixin will not allow anyone, but the post author to update the post
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
     fields =['title', 'content']
@@ -80,6 +81,7 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 
 # DetailView for each post
+# UserPassesTestMixin will not allow anyone, but the post author to delete the post
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     success_url = '/'                                   # in case of successful post deletion, redirect to homepage
