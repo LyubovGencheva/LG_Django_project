@@ -65,17 +65,19 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 # UserPassesTestMixin will not allow anyone, but the post author to update the post
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post
-    fields =['title', 'content']
+    fields = ['title', 'content']
 
-    # overriding the form save method: will take the user, making the request and set it to be the post's author
     def form_valid(self, form):
-        form.instance.author = self.request.user        # setting the author before checking form validity
+        if self.request.user.is_superuser:
+            return super().form_valid(form)             # running the form_valid method on the parent class
+        else:
+            form.instance.author = self.request.user    # setting the author before checking form validity!
         return super().form_valid(form)                 # running the form_valid method on the parent class
 
-    # users will only be able to update their own posts
+    # posts could only be updated by their author OR by admin
     def test_func(self):                                # a function checking whether the user passes the required test
         post = self.get_object()
-        if self.request.user == post.author:
+        if self.request.user == post.author or self.request.user.is_superuser:
             return True
         return False
 
@@ -86,10 +88,10 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
     success_url = '/'                                   # in case of successful post deletion, redirect to homepage
 
-    # users will only be able to delete their own posts
+    # posts could only be updated by their author OR by admin
     def test_func(self):                                # a function checking whether the user passes the required test
         post = self.get_object()
-        if self.request.user == post.author:
+        if self.request.user == post.author or self.request.user.is_superuser:
             return True
         return False
 
