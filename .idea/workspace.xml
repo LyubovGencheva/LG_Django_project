@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d96fb76f-10e5-496d-82ea-adc6312553d4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_project/blog/templates/blog/post_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/django_project/blog/templates/blog/post_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_project/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_project/blog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/django_project/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/django_project/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.txt" beforeDir="false" afterPath="$PROJECT_DIR$/README.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,15 +56,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/django_project/blog/templates/blog/home.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/django_project/blog/templates/blog/post_detail.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
@@ -76,6 +65,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="370">
+              <caret line="37" column="105" lean-forward="true" selection-start-line="37" selection-start-column="105" selection-end-line="37" selection-end-column="105" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/django_project/blog/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
@@ -176,7 +174,6 @@
         <option value="$PROJECT_DIR$/django_project/Procfile" />
         <option value="$PROJECT_DIR$/requirements-dev.txt" />
         <option value="$PROJECT_DIR$/django_project/django_project/settings.py" />
-        <option value="$PROJECT_DIR$/README.txt" />
         <option value="$PROJECT_DIR$/django_project/blog/urls.py" />
         <option value="$PROJECT_DIR$/django_project/users/templates/users/logout.html" />
         <option value="$PROJECT_DIR$/django_project/users/views.py" />
@@ -184,6 +181,7 @@
         <option value="$PROJECT_DIR$/django_project/blog/templates/blog/base.html" />
         <option value="$PROJECT_DIR$/django_project/blog/templates/blog/post_detail.html" />
         <option value="$PROJECT_DIR$/django_project/blog/views.py" />
+        <option value="$PROJECT_DIR$/README.txt" />
       </list>
     </option>
   </component>
@@ -507,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558815701606</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Added admin/superuser Edit/Delete permission on Posts (users created content) in blog.views: PostUpdateView and PostDeleteView with accordingly Update/Delete buttons in the post_detail.html template.">
+      <created>1558908280440</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1558908280440</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -560,7 +565,8 @@
     <MESSAGE value="Added README" />
     <MESSAGE value="Added README.txt" />
     <MESSAGE value="Project finalized for the exam." />
-    <option name="LAST_COMMIT_MESSAGE" value="Project finalized for the exam." />
+    <MESSAGE value="Added admin/superuser Edit/Delete permission on Posts (users created content) in blog.views: PostUpdateView and PostDeleteView with accordingly Update/Delete buttons in the post_detail.html template." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added admin/superuser Edit/Delete permission on Posts (users created content) in blog.views: PostUpdateView and PostDeleteView with accordingly Update/Delete buttons in the post_detail.html template." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/django_project/blog/templates/blog/test.html" />
@@ -645,13 +651,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-136">
           <caret line="45" column="1" selection-start-line="45" selection-start-column="1" selection-end-line="45" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="32" column="64" selection-start-line="32" selection-start-column="64" selection-end-line="32" selection-end-column="64" />
         </state>
       </provider>
     </entry>
@@ -853,13 +852,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/django_project/blog/templates/blog/post_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/django_project/blog/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -867,6 +859,20 @@
           <folding>
             <element signature="e#0#54#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_project/blog/templates/blog/post_detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="37" column="105" lean-forward="true" selection-start-line="37" selection-start-column="105" selection-end-line="37" selection-end-column="105" />
         </state>
       </provider>
     </entry>
