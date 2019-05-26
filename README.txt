@@ -33,7 +33,8 @@
                                             At success: redirect to the newly created post details
 ### /post/<int:pk>/                     Post details (redirect after post creation by author or @clicking on post's title from homepage)
                                     	PostDetail view: update/delete options for the author/ read-only for the rest of the users
-### /post/<int:pk>/update/              Post update option: for the post's author or superusers (from Post Detail view->redirect to Post details)
+### /post/<int:pk>/update/              Post update option: for the post's author or superusers 
+						(from Post Detail view -> redirect to Post details)
 ### /post/<int:pk>/delete/              Post delete option: for the post's author or superusers (from Post Detail view)
                                           	At 'Delete' -> 'Confirm?' -> Cancel: redirect to Post Details
                                           	At 'Delete' -> 'Confirm?' -> Yes, delete!: redirect to Homepage
